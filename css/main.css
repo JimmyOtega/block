@@ -1,0 +1,307 @@
+*{
+    padding: 0px;
+    margin: 0px;
+   
+}
+body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.header{
+    width: 80%;
+    height: 60px;
+    background: #1b382c;
+    margin: auto;
+}
+.h2_logo{
+    color: #fff;
+    float: left;
+    margin: 10px;
+}
+.img_logo{
+    width:50px;
+    height:50px;
+    margin: 10px;
+    border-radius:50%;
+    object-fit: cover;/*esta etiqueta es para que la imagen no pierda su calidad */
+    float:right;
+}
+.nav{
+    width: 80%;
+    height: 60px;
+    background:#3a2524;
+    margin: auto;
+}
+.nav:hover{
+    background: rgb(133, 134, 132);
+}
+ul {
+    list-style-type: none;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+li {
+    background: rgba(176,255,95,1);
+    float: left;
+    margin-right: 10px;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius:10%;
+}
+li:hover{
+    transform:rotate(380deg);
+}
+.li1{
+    color:#3a2524;
+}
+.li1:hover{
+    color: #DD3E2C;
+}
+/* ---------------------- */
+.li2{
+    color:#3a2524;
+}
+.li2:hover{
+    color: #DD3E2C;
+}
+/* --------------------- */
+.li3{
+    color:#3a2524;
+}
+.li3:hover{
+    color: #DD3E2C;
+}
+/* --------------------- */
+/*.timer{
+    position: absolute;
+    background: #1b382c;
+    color: #fff;
+    width: 30px;
+    height: 20px;
+    margin: 5px;
+}*/
+.sonido{
+    position: absolute;
+    display: none;
+}
+
+/* ----------- tanque  ---------------------*/
+
+
+.guj{
+    position: absolute;
+    width: 240px;
+    height: 350px;
+}
+.cañon{
+    position: absolute;
+    width: 300px;
+    height: 350px;
+}
+.img_tanque{
+    width: 230px;
+    height: 230px;
+    margin-top: 3px;
+    margin-left: 460px;
+  
+}
+.img_cañon{
+    width: 19px;
+    height: 110px;
+    margin-top: 14px;
+    margin-left: 540px;
+}
+.carr{
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    height: 10px;
+}
+/* --------------- animacion disparo ------------*/
+
+.dot{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(176,255,95,1);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(176,255,95,1),
+                0 0 20px rgba(176,255,95,1),
+                0 0 40px rgba(176,255,95,1),
+                0 0 60px rgba(176,255,95,1),
+                0 0 80px rgba(176,255,95,1);
+    
+    animation-name: animar;
+    animation-duration: 2s;
+}
+
+@keyframes animar {
+    0%   {box-shadow: 0 0 0 30px rgba(176,255,95,.1);}
+    1%  {box-shadow: 0 0 0 60px rgba(176,255,95,.1);}
+    2%  {box-shadow: 0 0 0 120px rgba(176,255,95,.1);}
+    3%  {box-shadow: 0 0 0 240px rgba(176,255,95,.1);}
+    4%  {box-shadow: 0 0 0 480px rgba(176,255,95,.1);}
+    5% {box-shadow: 0 0 0 960px rgba(176,255,95,.1);}
+    6% {box-shadow: 0 0 0 1800px rgba(176,255,95,.1);}
+    
+}
+/*-----------------------  contactos  ---------------------------------*/
+
+.cont{
+   margin-top: 100px;
+    width: 40px;
+    height: 220px;
+    border-radius:10%;
+    background: rgb(133, 134, 132);
+}
+
+.img_face{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin:5px;
+}
+
+.img_face:hover{
+    transform:scale(1.2);
+    transform:rotate(380deg);
+}
+.gi{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin:5px;
+}
+.gi:hover{
+    transform:scale(1.2);
+    transform:rotate(380deg);
+}
+.go{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin:5px;
+}
+.go:hover{
+    transform:scale(1.2);
+    transform:rotate(380deg);
+}
+.tu{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin:5px;
+}
+.tu:hover{
+    transform:scale(1.2);
+    transform:rotate(380deg);
+}
+.tum{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin:5px;
+}
+.tum:hover{
+    transform:scale(1.2);
+    transform:rotate(380deg);
+}
+.luna{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 88;
+   
+}
+.lun{
+   display: none;
+    top: 30px;
+    left: 300px;
+    width:100px;
+    height:100px;
+
+}
+/*-------------------------------- Articulo 1 -------------------------------*/
+.articulo1{
+    position: absolute;
+    display: none;
+    top: 0px;
+    margin: 5px;
+    width: 1350px;
+    height: 580px;
+    background: #fff;
+    z-index: 99;
+}
+.sa{
+    margin-left:1330px;
+    background:#000;
+    color: #F81D03;
+    cursor: pointer;
+}
+.sa:hover{
+    transform:rotate(380deg);
+}
+.h2{
+    margin: auto;
+    text-align:center;
+    color: #000;
+    text-shadow: 2px 10px 5px #1C9105;
+}
+/*-------------------------------- Articulo 2 -------------------------------*/
+.articulo2{
+    position: absolute;
+    display: none;
+    top: 0px;
+    margin: 5px;
+    width: 1350px;
+    height: 580px;
+    background: #fff;
+    z-index: 99;
+}
+.sa2{
+    margin-left:1330px;
+    background:#000;
+    color: #F81D03;
+    cursor: pointer;
+}
+.sa2:hover{
+    transform:rotate(380deg);
+}
+.h2{
+    margin: auto;
+    text-align:center;
+    color: #000;
+    text-shadow: 2px 10px 5px #1C9105;
+}
+/*-------------------------------- Articulo 3 -------------------------------*/
+.articulo3{
+    position: absolute;
+    display: none;
+    top: 0px;
+    margin: 5px;
+    width: 1350px;
+    height: 580px;
+    background: #fff;
+    z-index: 99;
+}
+.sa3{
+    margin-left:1330px;
+    background:#000;
+    color: #F81D03;
+    cursor: pointer;
+}
+.sa3:hover{
+    transform:rotate(380deg);
+}
+.h2{
+    margin: auto;
+    text-align:center;
+    color: #000;
+    text-shadow: 2px 10px 5px #1C9105;
+}
+

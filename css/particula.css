@@ -1,0 +1,13 @@
+* { 
+    margin: 0%; 
+    padding: 0%; 
+
+}
+
+#particles-js {
+    background-color:#3a2524;
+	width: 100%;
+    height: 600px;
+    position: fixed;/*para este codigo este defondo o fijo*/
+    z-index: -1;/*si hay otro valor del mismo pero con un numero mas alto en tonser quedara por de bajo*/
+}
