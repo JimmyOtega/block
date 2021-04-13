@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    //zona de variables publicas pueden canviar su valor
     var x1 = 0;
     var y1 = 0;
     var t = 0, t2 = 0, t3 = 0;
@@ -8,10 +8,13 @@ $(document).ready(function () {
     var r1 = 0;
     var r2 = 0;
     var v=0;
-    
+    var lunaTop=0, lunaLeft=0;
+    var re_lunTop=0,re_lunleft=0;
+    var ban=true;
     r1 = Math.round(Math.random() * 1000) + 1; //capturo el random
     r2 = Math.round(Math.random() * 550) + 1; //capturo el random
-   
+    // termina la zona de variables publicas pueden canviar su valor
+
     //captura la posicion del terminal del raton para darle esa coordenada al disparo de la nave
     $("body").mousemove(function (e) {
         x1 = e.pageX;
@@ -25,7 +28,6 @@ $(document).ready(function () {
     t3 = $('.li2').offset(); //captura la pisicion del tanque
     le3 = t3.left.toFixed();
 
-    //alert(r1 +" , "+ r2 );
     sierre();  //sierre de las hojas de secciones
     tiempo();
     function muevete(evento) {  //permite dar movimiento del tanque con el teclado
@@ -40,13 +42,17 @@ $(document).ready(function () {
                 break;
             case 13:
                 evento.preventDefault();
-                anim(y1, x1);
-                rotar_cañon();
-                anima_articulos_blok_coliccion();
-              
+                if(ban==true){
+                    anim(y1, x1);
+                    rotar_cañon();
+                    anima_articulos_blok_coliccion();
+                    bala_choca_luna();
+                  
+                }else{
+                   
+                }
                 break;
         }
-
     }
     $(document).on('keydown', muevete);
    
@@ -72,6 +78,8 @@ $(document).ready(function () {
         $(".dot").css({ top: p1, left: p2 });
         $(".dot").show();
         $(".dot").hide(1500);
+        $(".audio")[0].play();
+       
     }
     function rotar(angulo) {    //rotacion del cañon del  tanque
         $(".img_cañon").rotate(angulo);
@@ -99,31 +107,36 @@ $(document).ready(function () {
         }
     }
 
-    function anima_articulos_blok_coliccion() {  //este evento muestras las ventanas de articulos
-
+    function anima_articulos_blok_coliccion() {  //este evento muestras las ventanas de los articulos
         res = (x1 - le);
         if ((res > 43 && res <= 100) && (y1 > 63 && y1 <= 119)) {
             $(".articulo1").show(2000);
+            ban=false;
         }
         res2 = (x1 - le2);
         if ((res2 > 10 && res2 <= 105) && (y1 > 74 && y1 <= 99)) {
             $(".articulo2").show(2000);
+            ban=false;
         }
         res3 = (x1 - le3);
         if ((res3 > 142 && res3 <= 213) && (y1 > 76 && y1 <= 90)) {
             $(".articulo3").show(2000);
+            ban=false;
         }
         //alert( res3 +"posicion y : " +y1);
     }
-    function sierre() {    //este evento sierra la ventanas
+    function sierre() {    //este evento sierra la ventanas de articulos
         $(".sa").click(function (e) {
             $(".articulo1").fadeOut(3000);//transparencia y desaparece
+            ban=true;
         });
         $(".sa2").click(function (e) {
             $(".articulo2").fadeOut(3000);//transparencia y desaparece
+            ban=true;
         });
         $(".sa3").click(function (e) {
             $(".articulo3").fadeOut(3000);//transparencia y desaparece
+            ban=true;
         });
     }
     function luna_movimiento(l1, l2) { //este es el evento de la luna o posiciones de la misma
@@ -132,16 +145,13 @@ $(document).ready(function () {
             top: l1,
             left: l2
         });
-
-        /*var d = $('.lun').position();
-        var d1 = $('.lun').position();*/
-
-        //alert("luna_top : " + d.top + " luna_left : "+ d1.left);
+        
+        re_lunTop=l1-y1;
+        re_lunleft=l2-x1;
 
     }
 
-    function tiempo(){
-       
+    function tiempo(){  //funcion que maneja la ejecucion de una funcion cada tiempo 
         setInterval(  //esta instruccion ejecuta una funcion cada expacion de tiempo
             function(){
                 r1 = Math.round(Math.random() * 1000) + 1; 
@@ -151,6 +161,17 @@ $(document).ready(function () {
 
         );
     }
+    
+    function bala_choca_luna(){
+       
+        alert(re_lunTop + " , " +re_lunleft);
+        if( (re_lunTop > -73 && re_lunTop <= -19 ) || (re_lunTop >19 && re_lunTop <= 73) && (re_lunleft > -99 && re_lunleft<= -64) || (re_lunleft>64 && re_lunleft <=99)){
+            alert("jimmy lo logro");
+        }else{
+            alert("no lo logro");
+        }
+    }
+    
 
 
     

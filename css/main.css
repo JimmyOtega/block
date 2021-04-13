@@ -81,11 +81,11 @@ li:hover{
     height: 20px;
     margin: 5px;
 }*/
-.sonido{
+/*.sonido{
     position: absolute;
     display: none;
 }
-
+*/
 /* ----------- tanque  ---------------------*/
 
 
@@ -93,6 +93,7 @@ li:hover{
     position: absolute;
     width: 240px;
     height: 350px;
+   
 }
 .cañon{
     position: absolute;
@@ -224,7 +225,7 @@ li:hover{
     left: 300px;
     width:100px;
     height:100px;
-
+    cursor: pointer;
 }
 /*-------------------------------- Articulo 1 -------------------------------*/
 .articulo1{
