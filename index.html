@@ -8,6 +8,7 @@
         <script src="libreria/jquery-3.6.0.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="libreria/jQueryRotate.js"></script>
         <script src="./libreria/timer.jquery.min.js"></script> <!-- esta es la bibloteca para travajar con tiempo-->
+        <script type="text/javascript" src="./libreria/jGravity.js"></script><!--pluyin para utilizar gravedad-->
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/particula.css">
         <link rel="stylesheet" href="icomoon/style.css">
@@ -16,9 +17,14 @@
     <body>
         <div id="particles-js"></div>
         <div class="dot"></div>
-
+        <div class="exlu"></div>
+        <div class="contador"></div>
+        <img src="./img/mano.png" alt="mano" class="img_mano">
         <audio class="audio">
             <source src="./sonido/explosion-hit.mp3" type="audio/mp3">
+        </audio>
+        <audio class="gana">
+            <source src="./sonido/gana.mp3" type="audio/mp3">
         </audio>
 
         <div class="luna"><img src="./img/luna.png" alt="imagen" class="lun"></div>
@@ -64,14 +70,54 @@
         </section>
 
         <article class="articulo1">
-            <button type="submit" class="sa"><span class="icon-cross"></span></button>
-            <h2 class="h2">Bienvenidos a mi block</h2>
+            <div class="art1">               
+
+                <div class="j_art">
+                    <button type="submit" class="sa"><span class="icon-cross"></span></button>
+                    <h2 class="hj2">Bienvenidos a mi block</h2>
+                </div>
+
+                <div class="j_art1">
+                    <img src="./img/2.jpg" alt="img" class="imgj">
+                </div>
+
+                <div class="j_art2">
+                    <img src="./img/dedic/c++1.png" alt="img" class="imgj1">
+                </div>
+
+                <div class="j_art3">
+                    <img src="./img/dedic/java1.jpg" alt="img" class="imgj2">
+                </div>
+
+                <div class="j_art4">
+                    <img src="./img/dedic/html1.jpg" alt="img" class="imgj3">
+                </div>
+
+                <div class="j_art5">
+                    <img src="./img/dedic/script1.jpg" alt="img" class="imgj4">
+                </div>
+            </div>
+          
+            <div class="escrive">
+                <hr>
+                <br>
+                <p class="pra">Jimmy Leoncio Ortega Rodriguez</p> <br>
+                <p class="pra">Ingeniero de Sistemas</p> <br><br>
+                <p>Megusta la ingenieria de sistemas por que me permite hacer lo que mas megusta la PROGRAMACION es lo que me encanta.</p>
+                <p>La PROGRAMACION me permie viajar por la via lactea, contar las estrellas, abrazar el sol y conseguir una ajuga en el pajar</p><br>
+                <p class="pra">Los lenguajes que estan indicados en las imagenes son con los que estoy asociado y tengo algunos proyectos</p>
+                <hr>
+                <br> <br>
+                <input type="submit" id="enter" value="Enter">
+                <hr>
+            </div>
         </article>
 
         <article class="articulo2">
             <button type="submit" class="sa2"><span class="icon-cross"></span></button>
             <h2 class="h2">Acerca de</h2>
         </article>
+
         <article class="articulo3">
             <button type="submit" class="sa3"><span class="icon-cross"></span></button>
             <h2 class="h2">Portafolio</h2>

@@ -8,11 +8,9 @@ $(document).ready(function () {
     var r1 = 0;
     var r2 = 0;
     var v=0;
-    var lunaTop=0, lunaLeft=0;
+    var con=0;
     var re_lunTop=0,re_lunleft=0;
     var ban=true;
-    r1 = Math.round(Math.random() * 1000) + 1; //capturo el random
-    r2 = Math.round(Math.random() * 550) + 1; //capturo el random
     // termina la zona de variables publicas pueden canviar su valor
 
     //captura la posicion del terminal del raton para darle esa coordenada al disparo de la nave
@@ -20,16 +18,16 @@ $(document).ready(function () {
         x1 = e.pageX;
         y1 = e.pageY;
     });
-
+   
     t = $('.li1').offset(); //captura la pisicion del tanque
     le = t.left.toFixed();
     t2 = $('.li2').offset(); //captura la pisicion del tanque
     le2 = t2.left.toFixed();
     t3 = $('.li2').offset(); //captura la pisicion del tanque
     le3 = t3.left.toFixed();
-
+    $(".articulo1").css({display :'none'});
     sierre();  //sierre de las hojas de secciones
-    tiempo();
+    tiempo();  //funcion que maneja la ejecucion de una funcion cada tiempo 
     function muevete(evento) {  //permite dar movimiento del tanque con el teclado
         switch (evento.keyCode) {
             case 39:
@@ -56,7 +54,6 @@ $(document).ready(function () {
     }
     $(document).on('keydown', muevete);
    
-
     function m_iz() {      //movimiento izquierdo con el teclado 
         $(".cañon").animate({
             left: "+=10"
@@ -91,7 +88,6 @@ $(document).ready(function () {
         }
         else if (x1 > 900 && x1 <= 1200) {
             rotar(30);
-
         }
         else if (x1 > 1200) {
             rotar(50);
@@ -129,6 +125,7 @@ $(document).ready(function () {
         $(".sa").click(function (e) {
             $(".articulo1").fadeOut(3000);//transparencia y desaparece
             ban=true;
+            //location.reload(); //actualiza la pagina por completo
         });
         $(".sa2").click(function (e) {
             $(".articulo2").fadeOut(3000);//transparencia y desaparece
@@ -139,6 +136,18 @@ $(document).ready(function () {
             ban=true;
         });
     }
+   
+    function tiempo(){  //funcion que maneja la ejecucion de una funcion cada tiempo 
+        setInterval(  //esta instruccion ejecuta una funcion cada expacion de tiempo
+            function(){
+                r1 = Math.round(Math.random() * 300) + 1; 
+                r2 = Math.round(Math.random() * 1200) + 1;
+                luna_movimiento(r1, r2);
+            },2000
+
+        );
+    }
+
     function luna_movimiento(l1, l2) { //este es el evento de la luna o posiciones de la misma
         $(".lun").show(2000).hide(3000);
         $(".luna").css({
@@ -150,29 +159,38 @@ $(document).ready(function () {
         re_lunleft=l2-x1;
 
     }
-
-    function tiempo(){  //funcion que maneja la ejecucion de una funcion cada tiempo 
-        setInterval(  //esta instruccion ejecuta una funcion cada expacion de tiempo
-            function(){
-                r1 = Math.round(Math.random() * 1000) + 1; 
-                r2 = Math.round(Math.random() * 550) + 1;
-                luna_movimiento(r1, r2);
-            },2000
-
-        );
-    }
     
-    function bala_choca_luna(){
+    function bala_choca_luna(){     //coliccion del disparo con la luna
        
-        alert(re_lunTop + " , " +re_lunleft);
         if( (re_lunTop > -73 && re_lunTop <= -19 ) || (re_lunTop >19 && re_lunTop <= 73) && (re_lunleft > -99 && re_lunleft<= -64) || (re_lunleft>64 && re_lunleft <=99)){
-            alert("jimmy lo logro");
+            con++;
+            $(".exlu").css({ top: y1, left: x1 });
+            $(".exlu").show(2000);
+            $(".exlu").hide(1500);
+            $(".img_mano").show(200).hide(1500);
+            $(".gana")[0].play();
+            $('.contador').show(2000);
+            $('.contador').append(con);
+           
         }else{
-            alert("no lo logro");
+            //alert("no lo logro");
         }
     }
-    
+    //seciones de las paginas articulos
+    $("#enter").on('click',function(){ 
+        gravedad();
+    });
 
+    function gravedad(){ // utilizar gravedad
+        $('.articulo1').jGravity({
+            target: '.j_art, .j_art1, .j_art2, .j_art3, .j_art4, .j_art5, .enter', //quienes tendran gravedad
+            ignoreClass: 'ignoreMe',    //si quieres que ignore una clase
+            weight: 10,
+            depth: 5,
+            drag: true     //si quiere que puedan mover los div afectados
+        });
+        //$(this).removeClass('jGravity'); canselar la gravedad
+    }
 
     
 });
