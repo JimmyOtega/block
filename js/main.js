@@ -26,17 +26,18 @@ $(document).ready(function () {
     t3 = $('.li2').offset(); //captura la pisicion del tanque
     le3 = t3.left.toFixed();
     $(".articulo1").css({display :'none'});
+    $(".articulo2").css({display :'none'});
     sierre();  //sierre de las hojas de secciones
     tiempo();  //funcion que maneja la ejecucion de una funcion cada tiempo 
     function muevete(evento) {  //permite dar movimiento del tanque con el teclado
         switch (evento.keyCode) {
             case 39:
                 evento.preventDefault();
-                m_iz();
+                //m_iz();
                 break;
             case 37:
                 evento.preventDefault();
-                m_der();
+               // m_der();
                 break;
             case 13:
                 evento.preventDefault();
@@ -85,21 +86,36 @@ $(document).ready(function () {
     function rotar_cañon() {  // este metodo apunta el cañon al dispara del mismo
         if (x1 > 500 && x1 <= 900) {
             rotar(15);
+            /*setTimeout( function() { }, 7000); esta es una funcion que me permite una espera de 7 segundos*/
+            setTimeout( function() { rotar(0) }, 1000);
         }
-        else if (x1 > 900 && x1 <= 1200) {
+        else if (x1 > 900 && x1 <= 1000) {
             rotar(30);
+            setTimeout( function() { rotar(0) }, 1000);
+        }
+        else if (x1 > 1000 && x1 <= 1200 ) {
+            rotar(50);
+            setTimeout( function() { rotar(0) }, 1000);
         }
         else if (x1 > 1200) {
-            rotar(50);
+            rotar(80);
+            setTimeout( function() { rotar(0) }, 1000);
         }
         else if (x1 > 300 && x1 < 500) {
             rotar(-10);
+            setTimeout( function() { rotar(0) }, 1000);
         }
         else if (x1 > 100 && x1 < 300) {
             rotar(-30);
+            setTimeout( function() { rotar(0) }, 1000);
         }
         else if (x1 > 5 && x1 < 100) {
             rotar(-50);
+            setTimeout( function() { rotar(0) }, 1000);
+        }
+        else if (x1 > -5 && x1 < 10) {
+            rotar(-80);
+            setTimeout( function() { rotar(0) }, 1000);
         }
     }
 
@@ -126,10 +142,13 @@ $(document).ready(function () {
             $(".articulo1").fadeOut(3000);//transparencia y desaparece
             ban=true;
             //location.reload(); //actualiza la pagina por completo
+            setTimeout( function() { location.reload() }, 2000);
         });
         $(".sa2").click(function (e) {
             $(".articulo2").fadeOut(3000);//transparencia y desaparece
             ban=true;
+            //location.reload(); //actualiza la pagina por completo
+            setTimeout( function() { location.reload() }, 2000);
         });
         $(".sa3").click(function (e) {
             $(".articulo3").fadeOut(3000);//transparencia y desaparece
@@ -176,9 +195,12 @@ $(document).ready(function () {
             //alert("no lo logro");
         }
     }
-    //seciones de las paginas articulos
+    /*------------- seciones de las paginas articulos ------------*/
     $("#enter").on('click',function(){ 
         gravedad();
+    });
+    $("#ent").on('click',function(){ 
+        gravedad_articulo2();
     });
 
     function gravedad(){ // utilizar gravedad
@@ -190,6 +212,19 @@ $(document).ready(function () {
             drag: true     //si quiere que puedan mover los div afectados
         });
         //$(this).removeClass('jGravity'); canselar la gravedad
+        $(".vidrio")[0].play();
+    }
+
+    function gravedad_articulo2(){ // utilizar gravedad
+        $('.articulo2').jGravity({
+            target: '.titu, .caja1, .caja2, .caja3, .caja4, .caja5', //quienes tendran gravedad
+            ignoreClass: 'ignoreMe',    //si quieres que ignore una clase
+            weight: 10,
+            depth: 5,
+            drag: true     //si quiere que puedan mover los div afectados
+        });
+        //$(this).removeClass('jGravity'); canselar la gravedad
+        $(".vidrio")[0].play();
     }
 
     
